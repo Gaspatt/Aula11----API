@@ -16,6 +16,16 @@ const routes = [
     name: 'TV',
     component: () => import('../views/TvView.vue'),
   },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/RegistrarView.vue'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue'),
+  }
 ];
 
 const router = createRouter({
