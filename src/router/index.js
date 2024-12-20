@@ -18,6 +18,12 @@ const routes = [
     props: true,
   },
   {
+    path: '/tv/:tvId',
+    name: 'TvDetails',
+    component: () => import('../views/TvDetailsView.vue'),
+    props: true,
+  },
+  {
     path: '/tv',
     name: 'TV',
     component: () => import('../views/TvView.vue'),
