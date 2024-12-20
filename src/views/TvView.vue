@@ -65,11 +65,11 @@ const listTvshows = async (genreId) => {
     <div v-for="tv in tvshows" :key="tv.id" class="tv-card">
       <img
         :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`"
-        :alt="tv.title"
+        :alt="tv.name"
         @click="openTv(tv.id)"
       />
       <div class="tv-details">
-        <p class="tv-title">{{ tv.title }}</p>
+        <p class="tv-title">{{ tv.name }}</p>
         <p class="tv-release-date">{{ formatDate(tv.first_air_date) }}</p>
         <p class="tv-genres">{{ tv.genre_ids }}</p>
       </div>
@@ -82,7 +82,7 @@ const listTvshows = async (genreId) => {
     </div>
   </div>
 
-  <h1>Programas de TV</h1>
+  <h1>CATALOGO DE PROGRAMAS DE TV</h1>
   <ul class="genre-list">
     <li
       v-for="genre in genreStore.genres"
@@ -97,10 +97,23 @@ const listTvshows = async (genreId) => {
 </template>
 
 <style scoped>
+
+template {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+  color: white;
+}
+
 .genre-list {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: Wrap;
   gap: 2rem;
   list-style: none;
   padding: 0;
@@ -123,8 +136,11 @@ const listTvshows = async (genreId) => {
 }
 .tv-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  color: #fff;
 }
 
 .tv-card {
@@ -133,24 +149,35 @@ const listTvshows = async (genreId) => {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
+  background-color: white;
 }
 
 .tv-card img {
   width: 100%;
   height: 20rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0 0;
   box-shadow: 0 0 0.5rem #000;
+  color: white;
+
 }
 
 .tv-details {
   padding: 0 0.5rem;
+  color: #000;
+  text-align: center;
+  gap: 1vh;
+}
+
+.tv-details .tv-genres {
+  display: none;
 }
 
 .tv-title {
   font-size: 1.1rem;
   font-weight: bold;
+  margin-top: 2vh;
   line-height: 1.3rem;
-  height: 3.2rem;
+  height: 2.2rem;
 }
 
 .tv-genres {
@@ -161,6 +188,8 @@ const listTvshows = async (genreId) => {
   justify-content: center;
   gap: 0.2rem;
 }
+
+
 
 .tv-genres span {
   background-color: #748708;

@@ -67,7 +67,7 @@ const listMovies = async (genreId) => {
     </div>
   </div>
 
-  <h1>Filmes</h1>
+  <h1>CATALOGO DE FILMES</h1>
   <ul class="genre-list">
     <li v-for="genre in genreStore.genres" :key="genre.id" @click="listMovies(genre.id)"
      :class=" { active: genre.id===genreStore.currentGenreId }" class="genre-item">
@@ -80,32 +80,50 @@ const listMovies = async (genreId) => {
 </template>
 
 <style scoped>
+
+template {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+  color: white;
+}
+
 .genre-list {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: Wrap;
   gap: 2rem;
   list-style: none;
-  margin-bottom: 2rem;
+  padding: 0;
 }
 
 .genre-item {
-  background-color: #387250;
+  background-color: #5d6424;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
+  align-self: center;
   color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .genre-item:hover {
   cursor: pointer;
-  background-color: #4e9e5f;
-  box-shadow: 0 0 0.5rem #387250;
+  background-color: #7d8a2e;
+  box-shadow: 0 0 0.5rem #5d6424;
 }
-
 .movie-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  color: #fff;
 }
 
 .movie-card {
@@ -114,24 +132,34 @@ const listMovies = async (genreId) => {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
+  background-color: white;
 }
 
 .movie-card img {
   width: 100%;
   height: 20rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0 0;
   box-shadow: 0 0 0.5rem #000;
+  color: white;
 }
 
 .movie-details {
   padding: 0 0.5rem;
+  color: #000;
+  text-align: center;
+  gap: 1vh;
+}
+
+.movie-details .movie-genres {
+  display: none;
 }
 
 .movie-title {
   font-size: 1.1rem;
   font-weight: bold;
+  margin-top: 2vh;
   line-height: 1.3rem;
-  height: 3.2rem;
+  height: 2.2rem;
 }
 
 .movie-genres {
@@ -142,6 +170,8 @@ const listMovies = async (genreId) => {
   justify-content: center;
   gap: 0.2rem;
 }
+
+
 
 .movie-genres span {
   background-color: #748708;

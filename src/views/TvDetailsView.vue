@@ -32,12 +32,14 @@ onMounted(async () => {
     </div>
   </div>
 
-  <p>Produtoras</p>
+  <h2 style="text-align: center; margin-top: 7vh">Produtoras</h2>
+  <div class="produtoras">
   <div class="companies">
     <template v-for="company in tvStore.currentTv.production_companies" :key="company.id">
       <img v-if="company.logo_path" :src="`https://image.tmdb.org/t/p/w92${company.logo_path}`" :alt="company.name" class="company-logo" />
       <p v-else>{{ company.name }}</p>
     </template>
+  </div>
   </div>
 
 </template>
@@ -50,6 +52,12 @@ onMounted(async () => {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.produtoras {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
 }
 
 .tv-title {
@@ -82,9 +90,12 @@ onMounted(async () => {
   margin-bottom: 0.5rem;
 }
 
+h2 {
+  color: white;
+}
 .companies {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
 }
 

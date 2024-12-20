@@ -39,6 +39,7 @@ header {
   color: #fff;
   font-size: 1.2rem;
   padding-left: 2rem;
+  margin-bottom: 5vh;
 }
 
 nav {
@@ -46,6 +47,7 @@ nav {
   margin-bottom: 0;
   display: flex;
   align-items: center;
+  margin-left: 30vw;
 }
 
 nav a {
