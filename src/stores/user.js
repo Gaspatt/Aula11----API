@@ -6,9 +6,11 @@ export const useUserStore = defineStore('user', {
     users: [],
   }),
   actions: {
-    register(userData) {
+    register(userData, router) {
       this.users.push(userData);
       this.user = userData;
+      alert('Conta criada com sucesso');
+      router.push('/login');
     },
     login(credentials, router) {
       const user = this.users.find(
@@ -16,8 +18,6 @@ export const useUserStore = defineStore('user', {
       );
       if (user) {
         this.user = user;
-        alert('Usuário logado com sucesso');
-        router.push('/');
       } else {
         throw new Error('Senha ou email inválidos');
       }

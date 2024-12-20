@@ -12,7 +12,13 @@ const getGenreName = (id) => genres.value.find((genre) => genre.id === id).name
 
 const isLoading = ref(false);
 
-const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR');
+const formatDate = (date) => {
+  const parsedDate = new Date(date);
+  if (isNaN(parsedDate)) {
+    return 'Data inválida';
+  }
+  return parsedDate.toLocaleDateString('pt-BR');
+};
 
 // onMounted(async () => {
 // const response = await api.get('genre/tv/list?language=pt-BR');
@@ -54,7 +60,7 @@ const listTvshows = async (genreId) => {
       <img :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`" :alt="tv.title" />
       <div class="tv-details">
         <p class="tv-title">{{ tv.title }}</p>
-        <p class="tv-release-date">{{ formatDate(tv.release_date) }}</p>
+        <p class="tv-release-date">{{ formatDate(tv.first_air_date) }}</p>
         <p class="tv-genres">{{ tv.genre_ids }}</p>
       </div>
 

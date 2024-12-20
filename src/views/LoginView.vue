@@ -12,8 +12,10 @@ const router = useRouter();
 const login = () => {
   try {
     userStore.login({ email: email.value, password: password.value }, router);
+    alert('Usuário logado com sucesso');
+    router.push('/');
   } catch (error) {
-    alert('Invalid credentials');
+    alert('Senha ou email inválidos');
   }
 };
 </script>

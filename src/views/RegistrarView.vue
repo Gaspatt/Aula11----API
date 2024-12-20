@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 
 const name = ref('');
@@ -7,9 +8,10 @@ const email = ref('');
 const password = ref('');
 
 const userStore = useUserStore();
+const router = useRouter();
 
 const register = () => {
-  userStore.register({ name: name.value, email: email.value, password: password.value });
+  userStore.register({ name: name.value, email: email.value, password: password.value }, router);
 };
 </script>
 
